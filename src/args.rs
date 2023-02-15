@@ -10,6 +10,10 @@ pub struct Args {
     /// Verbose output
     #[arg(long)]
     pub verbose: bool,
+
+    /// Number of fans
+    #[arg(short, long, default_value = "4")]
+    pub fans: u16,
 }
 
 #[derive(Subcommand)]

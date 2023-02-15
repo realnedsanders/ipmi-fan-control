@@ -2,11 +2,11 @@
 
 [![GitHub license](https://img.shields.io/github/license/yinheli/ipmi-fan-control)](https://github.com/yinheli/ipmi-fan-control/blob/master/LICENSE)
 
-A tool to control the fan speed by monitoring the temperature of CPU via IPMI.
+A tool to control the fan speed of my QCT (aka Quanta aka QuantaGrid) d51b-1u and d51pc-1ulh by monitoring the temperature of CPU via IPMI.
 
 ## Why
 
-Our Dell R730 server's iDRAC is not works as expected. The fan always run full speed. And is very noisy, We digged but didn't fix out. So I build this to control the fan speed programmatically. And use RUST just for practice. Any contribute are welcome.
+I wanted to be able to control the thresholds of the fan speed via the OS and not rely on the BMC's automatic control.
 
 ## Usage
 
@@ -29,19 +29,19 @@ ipmi-fan-control --help
 ```
 
 ```
-USAGE:
-    ipmi-fan-control [OPTIONS] <SUBCOMMAND>
+Usage: ipmi-fan-control [OPTIONS] <COMMAND>
 
-OPTIONS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-        --verbose    Verbose output
+Commands:
+  auto   Auto adjust fan speed by interval checking CPU temperature
+  fixed  Set fixed RPM percentage for fan
+  info   Print CPU temperature and fan RPM
+  help   Print this message or the help of the given subcommand(s)
 
-SUBCOMMANDS:
-    auto     Auto adjust fan speed by interval checking CPU temperature
-    fixed    Set fixed RPM percentage for fan
-    help     Print this message or the help of the given subcommand(s)
-    info     Print CPU temperature and fan RPM
+Options:
+      --verbose      Verbose output
+  -f, --fans <FANS>  Number of fans [default: 4]
+  -h, --help         Print help information
+  -V, --version      Print version information
 ```
 
 ## Resource

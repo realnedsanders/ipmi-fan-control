@@ -89,7 +89,7 @@ async fn main() {
                     }
 
                     if last_speed != speed {
-                        match tool.set_fan_speed(speed) {
+                        match tool.set_fan_speed(args.fans, speed) {
                             Ok(_) => {
                                 last_speed = speed;
                                 info!("temperature: {}, set fan speed to {}", temperature, speed);
@@ -108,7 +108,7 @@ async fn main() {
                 v = 100;
             }
             info!("fixed mode, set fan speed to {}", v);
-            if let Err(e) = tool.set_fan_speed(v) {
+            if let Err(e) = tool.set_fan_speed(args.fans, v) {
                 error!("set fan speed, error: {}", e);
             }
         }
